@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { NacelleShopProduct } from '@nacelle/types';
+import { Product } from '../../types/Types';
 export declare type YotpoReviewsProps = {
-    product: NacelleShopProduct;
+    product: Product;
     price: string;
     urlPath: string;
 };

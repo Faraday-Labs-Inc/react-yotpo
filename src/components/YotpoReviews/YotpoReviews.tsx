@@ -1,11 +1,11 @@
 import React, { FC, useMemo } from 'react';
-import { NacelleShopProduct } from '@nacelle/types';
+import { Product } from '../../types/Types';
 
 import decodeProductId from '../../utils/decodeProductId';
 import { useYotpoRefresh } from '../../hooks/useYotpoRefresh';
 
 export type YotpoReviewsProps = {
-  product: NacelleShopProduct;
+  product: Product;
   price: string;
   urlPath: string;
 };
@@ -21,8 +21,8 @@ const YotpoReviews: FC<YotpoReviewsProps> = ({
   useYotpoRefresh();
 
   const sourceProductId = useMemo(
-    () => decodeProductId(product.pimSyncSourceProductId),
-    [product.pimSyncSourceProductId]
+    () => decodeProductId(product.id.toString()),
+    [product.id]
   );
 
   return (
@@ -30,10 +30,10 @@ const YotpoReviews: FC<YotpoReviewsProps> = ({
       className="yotpo yotpo-main-widget"
       data-product-id={sourceProductId}
       data-price={price}
-      data-currency={product.priceRange.currencyCode}
-      data-name={product.title}
+      data-currency={product.price.currencyCode}
+      data-name={product.name}
       data-url={`${window.location.origin}${urlPath}`}
-      data-image-url={product.featuredMedia.src}
+      data-image-url={product.images[0].url}
       data-description={product.description}
     />
   );
