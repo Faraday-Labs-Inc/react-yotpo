@@ -9,7 +9,7 @@ export type HtmlScript = {
   type: string;
 };
 
-const YOTPO_SCRIPTS: HtmlScript[] = [
+export const YOTPO_SCRIPTS: HtmlScript[] = [
   {
     src: `//staticw2.yotpo.com/${process.env.YOTPO_API_KEY}/widget.js`,
     type: 'text/javascript',
