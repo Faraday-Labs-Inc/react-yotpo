@@ -6,6 +6,7 @@ export declare type HtmlScript = {
     src: string;
     type: string;
 };
+export declare const YOTPO_SCRIPTS: HtmlScript[];
 /**
  * Embeds the Yotpo widget script into the dom
  */
